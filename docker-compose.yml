@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: backend/Dockerfile  # Specify the backend Dockerfile path
+    ports:
+      - "5000:5000"  # Expose the backend on port 5000
+    environment:
+      - FLASK_ENV=development  # Set Flask environment to development for easy debugging
+    depends_on:
+      - frontend  # Ensure the frontend is ready before the backend starts
+    networks:
+      - app-network  # Add backend to the app-network
+
+  frontend:
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: frontend/Dockerfile  # Specify the frontend Dockerfile path
+    ports:
+      - "3000:3000"  # Expose the frontend on port 3000
+    environment:
+      - REACT_APP_API_URL=http://backend:5000  # Set the backend API URL for frontend communication
+    networks:
+      - app-network  # Add frontend to the app-network
+
+networks:
+  app-network:
+    driver: bridge  # Set up a bridge network to enable communication between frontend and backend

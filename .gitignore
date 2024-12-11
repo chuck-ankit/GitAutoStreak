@@ -1,0 +1,23 @@
+# Python virtual environment
+venv/
+
+# Byte-compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Environment variables and sensitive configurations
+.env
+backend/config.py
+backend/.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and caches
+*.log
+*.sqlite3
+
+# Ignore any additional secret files
+secrets.json
