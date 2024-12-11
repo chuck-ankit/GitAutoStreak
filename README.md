@@ -50,7 +50,7 @@ GitAutoStreak/
 ### Backend Setup
 1. Clone the repository:
    ```bash
-   git clone git@github.com:chuck-ankit/GitAutoStreak.git
+   git clone https://github.com/chuck-ankit/GitAutoStreak.git
    cd GitAutoStreak/backend
    ```
 2. Create a virtual environment and install dependencies:
